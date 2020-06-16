@@ -24,14 +24,14 @@ export class InfoPaginaService {
 
           this.cargada = true;
           this.info = resp;
-          
         });
    }
    private cargarEquipo(){
     this.http.get('https://angular-html-d58bf.firebaseio.com/equipo.json')
-    .subscribe( (resp: any[]) =>{
+    .subscribe( (resp: any[]) =>
+    {
       this.equipo = resp;
-          console.log(resp);
+      /* console.log(resp); */
         });
    }
 }
