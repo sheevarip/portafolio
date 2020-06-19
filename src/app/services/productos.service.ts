@@ -18,7 +18,6 @@ export class ProductosService {
   private cargarProductos(){
     this.http.get('https://angular-html-d58bf.firebaseio.com/productos_idx.json')
     .subscribe((resp: Producto[]) => {
-      console.log(resp);
       this.productos = resp;
 
       setTimeout(() => {
@@ -26,5 +25,8 @@ export class ProductosService {
       }, 2000);
     });
 
+  }
+  getProducto(id: string){
+    return this.http.get(`https://angular-html-d58bf.firebaseio.com/productos/${ id }.json`);
   }
 }
