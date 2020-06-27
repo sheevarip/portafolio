@@ -10,13 +10,17 @@ import { ProductoCompleto } from '../../interfaces/producto_completo';
 })
 export class ItemComponent implements OnInit {
 
+  producto: ProductoCompleto;
+  id: string;
+
   constructor(private route: ActivatedRoute, public productoService: ProductosService) { }
 
   ngOnInit(): void {
 
     this.route.params.subscribe(parametros =>{
       this.productoService.getProducto(parametros['id']).subscribe( (producto: ProductoCompleto) =>{
-        
+        this.id = parametros['id'];
+        this.producto = producto;
       });
     });
   }
